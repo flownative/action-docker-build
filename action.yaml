@@ -10,7 +10,7 @@ inputs:
     description: 'The image name to build, without tag. For example, `flownative/docker-magic-image/magic-image`'
     required: true
     default: ''
-  github_token:
+  registry_password:
     description: 'Password / token for the Github Docker image registry'
     required: true
     default: ''

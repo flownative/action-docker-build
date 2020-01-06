@@ -4,7 +4,7 @@ set -x
 TAG=$(echo "${INPUT_TAG_REF}" | sed -e 's|refs/tags/||')
 IMAGE_NAME="docker.pkg.github.com/${INPUT_IMAGE_NAME}"
 
-echo "${INPUT_GITHUB_TOKEN}" | docker login -u github --password-stdin https://docker.pkg.github.com/v2/
+echo "${INPUT_REGISTRY_PASSWORD}" | docker login -u github --password-stdin https://docker.pkg.github.com/v2/
 
 git checkout ${TAG}
 set -- "-t" "${IMAGE_NAME}:${TAG}"
