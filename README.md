@@ -1,6 +1,7 @@
 # Docker Image Build Github Action
 
-This Github action builds a Docker image based on a given Git tag reference. 
+This Github action builds a Docker image based on a given Git tag reference. The Git tag must start with a "v" prefix,
+for example "v1.23.4-5"
 
 It's also possible to provide a script which can dynamically set environment variables which are then used as build
 arguments. That way you can retrieve a version number of a specific dependency via a web service or URL and pass
