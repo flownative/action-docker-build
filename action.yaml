@@ -1,0 +1,23 @@
+name: 'Build Docker image'
+description: 'Build a Docker image from a tagged release'
+author: 'Flownative'
+inputs:
+  tag_ref:
+    description: 'The full tag reference. This must be a semver tag ref of an existing tagged image. For example, `refs/tags/v1.2.5-12`'
+    required: true
+    default: ''
+  image_name:
+    description: 'The image name to build, without tag. For example, `flownative/docker-magic-image/magic-image`'
+    required: true
+    default: ''
+  github_token:
+    description: 'Password / token for the Github Docker image registry'
+    required: true
+    default: ''
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'package'
+  color: 'blue'
