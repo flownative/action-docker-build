@@ -1,13 +1,16 @@
 #!/bin/sh
 set -x
 
-TAG=$(echo "${INPUT_TAG_REF}" | sed -e 's|refs/tags/||')
+GIT_TAG=$(echo "${INPUT_TAG_REF}" | sed -e 's|refs/tags/||')
 IMAGE_NAME="docker.pkg.github.com/${INPUT_IMAGE_NAME}"
+IMAGE_TAG=$(echo "${GIT_TAG}" | sed -e 's/v//')
+
+echo "Building ${IMAGE_NAME}:${IMAGE_TAG} based on Git tag ${GIT_TAG} ..."
 
 echo "${INPUT_REGISTRY_PASSWORD}" | docker login -u github --password-stdin https://docker.pkg.github.com/v2/
 
-git checkout ${TAG}
-set -- "-t" "${IMAGE_NAME}:${TAG}"
+git checkout "${GIT_TAG}"
+set -- "-t" "${IMAGE_NAME}:${IMAGE_TAG}"
 
 BUILD_ENV_SCRIPT=${GITHUB_WORKSPACE}/.github/build-env.sh
 
@@ -25,4 +28,4 @@ else
 fi
 
 docker build "$@" .
-docker push "${IMAGE_NAME}:${TAG}"
+docker push "${IMAGE_NAME}:${IMAGE_TAG}"
