@@ -7,10 +7,8 @@ IMAGE_TAG=$(echo "${GIT_TAG}" | sed -e 's/v//')
 
 echo "Building ${IMAGE_NAME}:${IMAGE_TAG} based on Git tag ${GIT_TAG} ..."
 
-if [ "${INPUT_CREATE_BUILD_VERSION_FILE}" = "yes" ]; then
-  echo "Creating build-version.txt file ..."
-  echo "${IMAGE_TAG}" > "${GITHUB_WORKSPACE}/build-version.txt"
-fi
+echo "Creating build-version.txt file ..."
+echo "${GIT_TAG}" > "${GITHUB_WORKSPACE}/build-version.txt"
 
 echo "${INPUT_REGISTRY_PASSWORD}" | docker login -u github --password-stdin https://docker.pkg.github.com/v2/
 

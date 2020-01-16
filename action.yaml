@@ -14,10 +14,6 @@ inputs:
     description: 'Password / token for the Github Docker image registry'
     required: true
     default: ''
-  create_build_version_file:
-    description: 'If set to "yes", creates a "build-version.txt" file in the main directory, containing the tag of this build'
-    required: false
-    default: ''
 
 runs:
   using: 'docker'
