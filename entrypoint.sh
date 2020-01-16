@@ -7,7 +7,7 @@ IMAGE_TAG=$(echo "${GIT_TAG}" | sed -e 's/v//')
 
 echo "Building ${IMAGE_NAME}:${IMAGE_TAG} based on Git tag ${GIT_TAG} ..."
 
-if [ "${CREATE_BUILD_VERSION_FILE}" == "yes" ]; then
+if [ "${INPUT_CREATE_BUILD_VERSION_FILE}" = "yes" ]; then
   echo "Creating build-version.txt file ..."
   echo "${IMAGE_TAG}" > "${GITHUB_WORKSPACE}/build-version.txt"
 fi
