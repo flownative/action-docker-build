@@ -3,7 +3,7 @@ set -x
 
 GIT_TAG=$(echo "${INPUT_TAG_REF}" | sed -e 's|refs/tags/||')
 IMAGE_NAME="docker.pkg.github.com/${INPUT_IMAGE_NAME}"
-IMAGE_TAG=$(echo "${GIT_TAG}" | sed -e 's/v//')
+IMAGE_TAG=$(echo "${GIT_TAG}" | sed -e 's/^v//' | sed -e 's/+.*//')
 
 echo "Building ${IMAGE_NAME}:${IMAGE_TAG} based on Git tag ${GIT_TAG} ..."
 
