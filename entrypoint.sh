@@ -16,8 +16,6 @@ git checkout "${GIT_TAG}"
 set -- "-t" "${IMAGE_NAME}:${IMAGE_TAG}" \
   "--label" "org.label-schema.schema-version=1.0" \
   "--label" "org.label-schema.version=${IMAGE_TAG}" \
-  "--label" "org.label-schema.vcs-url=https://github.com/${{ github.repository }}" \
-  "--label" "org.label-schema.vcs-ref=${{ github.sha }}" \
   "--label" "org.label-schema.build-date=$(date '+%FT%TZ')" \
   "--build-arg" "BUILD_DATE=$(date '+%FT%TZ')"
 
