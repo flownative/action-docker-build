@@ -20,10 +20,10 @@ set -- "-t" "${IMAGE_NAME}:${IMAGE_TAG}" \
   "--build-arg" "BUILD_DATE=$(date '+%FT%TZ')"
 
 if [ -n "${INPUT_GIT_REPOSITORY_URL}" ]; then
-  set -- "@" "--label" "org.label-schema.vcs-url=${INPUT_GIT_REPOSITORY_URL}"
+  set -- "$@" "--label" "org.label-schema.vcs-url=${INPUT_GIT_REPOSITORY_URL}"
 fi
 if [ -n "${INPUT_GIT_SHA}" ]; then
-  set -- "@" "--label" "org.label-schema.vcs-ref=${INPUT_GIT_SHA}"
+  set -- "$@" "--label" "org.label-schema.vcs-ref=${INPUT_GIT_SHA}"
 fi
 
 BUILD_ENV_SCRIPT=${GITHUB_WORKSPACE}/.github/build-env.sh
