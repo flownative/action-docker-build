@@ -1,7 +1,1 @@
-FROM docker:dind
-
-RUN apk --no-cache add git
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod 755 /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+FROM docker.pkg.github.com/flownative/docker-action-docker-build/action-docker-build:1
