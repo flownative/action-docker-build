@@ -1,3 +1,6 @@
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![Maintenance level: Love](https://img.shields.io/badge/maintenance-%E2%99%A1%E2%99%A1%E2%99%A1-ff69b4.svg)](https://www.flownative.com/en/products/open-source.html)
+
 # Docker Image Build Github Action
 
 This Github action builds a Docker image based on a given Git tag reference. The Git tag must start with a "v" prefix,
@@ -28,7 +31,7 @@ jobs:
           fetch-depth: 1
 
       - name: Build Docker image
-        uses: flownative/action-docker-build@master
+        uses: flownative/action-docker-build@v1
         with:
           tag_ref: ${{ github.ref }}
           image_name: flownative/docker-base/base
