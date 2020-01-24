@@ -23,6 +23,14 @@ inputs:
     required: true
     default: ''
 
+outputs:
+  image_name:
+    description: 'The name of the Docker image, which was built and pushed'
+  image_tag:
+    description: 'The tag of the Docker image, which was built and pushed'
+  git_tag:
+    description: 'The tag of the Git commit, which was discovered during the process'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
