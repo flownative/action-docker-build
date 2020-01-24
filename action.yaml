@@ -1,5 +1,5 @@
-name: 'Build Docker image'
-description: 'Build a Docker image from a tagged release'
+name: 'Dynamic Build Docker Image'
+description: 'Build a Docker image from a tagged release and publish it to Github Packages. Supports dynamic build arguments.'
 author: 'Flownative'
 inputs:
   tag_ref:
