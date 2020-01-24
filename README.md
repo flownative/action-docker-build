@@ -72,7 +72,7 @@ RUN wget --no-hsts https://github.com/zyedidia/micro/releases/download/v${MICRO_
 
 ## Implementation Note
 
-The repository of this action does not contain the actual implementation code. Instead, it's referring to a pre-build
+The repository of this action does not contain the actual implementation code. Instead, it's referring to a pre-built
 image in its `Dockerfile` in order to save resources and speed up workflow runs.
 
 The code of this action can be found [here](https://github.com/flownative/docker-action-docker-build).
