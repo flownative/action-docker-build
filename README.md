@@ -35,6 +35,16 @@ jobs:
           registry_password: ${{ secrets.GITHUB_TOKEN }}
 ````
 
+## Outputs
+
+After a successful run, the action provides your workflow with the following outputs:
+
+- `image_name`: The name of the Docker image, which was built and pushed
+- `image_tag`: The tag of the Docker image, which was built and pushed
+- `git_tag`: The tag of the Git commit, which was discovered during the process
+
+## Dynamic build arguments
+
 If the following file is present as `.github/workflows/build-env.sh`, its exported environment environment variables
 (you can provide multiple ones) will be parsed ...
 
