@@ -37,6 +37,16 @@ jobs:
           image_name: flownative/docker-base/base
           registry_password: ${{ secrets.GITHUB_TOKEN }}
 ````
+## Inputs
+
+The following inputs are used by this action:
+
+- `tag_ref`: The full Git tag reference. This must be a semver tag ref of an existing tagged image. For example, `refs/tags/v1.2.5+12`
+- `git_sha`: The SHA hash of the Git commit being used for the build. If set, this value is used as a label for the resulting Docker image
+- `git_repository_url`: The URL leading to the Git repository. If set, this value is used as a label for the resulting Docker image
+- `image_name`: The image name to build, without tag. For example, `flownative/docker-magic-image/magic-image`
+- `image_tag`: The image tag to build. If empty, the tag is derived from `tag_ref`: e.g. `v1.2.5`
+- `registry_password`: Password / token for the Github Docker image registry
 
 ## Outputs
 
