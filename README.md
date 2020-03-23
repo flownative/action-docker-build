@@ -46,6 +46,21 @@ After a successful run, the action provides your workflow with the following out
 - `image_tag`: The tag of the Docker image, which was built and pushed
 - `git_tag`: The tag of the Git commit, which was discovered during the process
 
+## Docker image labels
+
+This action automatically sets a couple of labels in the built Docker image. This
+metadata may help you and others identifying the state of source code used at build
+time.
+
+The following labels are set:
+
+- `org.label-schema.version`: set to the image tag
+- `org.label-schema.build-date`: set to the current date and time during the build
+- `org.label-schema.vcs-url`: set to to the Git repository URL
+- `org.label-schema.vcs-ref`: set to the SHA of the current Git commit
+
+Hint: You can review the image labels by running `docker inspect`.
+
 ## Dynamic build arguments
 
 If the following file is present as `.github/workflows/build-env.sh`, its exported environment environment variables
